@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Calculator</title>
+  <style>
+    button:focus {
+      background: #003a92;
+      color: #fff;
+    }
+  </style>
+</head>
+<body>
+  <h1>Calculator</h1>
+  <form id="calc">
+    <input type="number" id="n1" placeholder="First Number" required>
+    <input type="number" id="n2" placeholder="Second Number" required> <br>
+    <button type="submit" id="add" style="margin-top: 10px; padding: 10px;">+</button>
+    <button type="submit" id="sub" style="margin-top: 10px; padding: 10px;">-</button>
+    <button type="submit" id="mul" style="margin-top: 10px; padding: 10px;">x</button>
+    <button type="submit" id="div" style="margin-top: 10px; padding: 10px;">/</button>
+  </form>
+  <p id="result"></p>
+
+  <script>
+    document.getElementById('calc').addEventListener('submit', function(event) {
+      event.preventDefault();
+      
+      const n1 = parseFloat(document.getElementById('n1').value);
+      const n2 = parseFloat(document.getElementById('n2').value);
+
+      let operation;
+
+      if (event.submitter.id === 'add') {
+          operation = 'add';
+        } else if (event.submitter.id === 'sub') {
+            operation = 'sub';
+        } else if (event.submitter.id === 'mul') {
+            operation = 'mul';
+        } else if (event.submitter.id === 'div') {
+            operation = 'div';
+        }
+
+        fetch(`/api/${operation}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ n1, n2 })
+        })
+        .then(response => response.json())
+        .then(data => {
+          document.getElementById('result').innerText = `Result: ${data[operation]}`;
+        })
+        .catch(error => {
+          console.error('Error in operation:', error);
+          document.getElementById('result').innerText = 'Error in operation.';
+        });
+    });
+  </script>
+</body>
+</html>
