@@ -1,0 +1,37 @@
+.brand-logo img {
+  width: 25%;
+  height: 25%;
+}
+
+section {
+  padding: 20px 0px;
+}
+
+.main-body {
+  background: #ffd7d8;
+}
+
+.main-logo {
+  display: block;
+  margin: auto;
+}
+
+.card-content {
+  border-top: 1px solid #000;
+}
+
+.card .card-image img {
+  width: 70% !important;
+  margin: auto;
+}
+
+.order-btn {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.pagination {
+  text-align: center;
+}
