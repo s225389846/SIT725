@@ -1,0 +1,27 @@
+{
+  "name": "week-3---workshop-class-activity",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "test": "mocha --reporter spec"
+  },
+  "keywords": [
+    "Nodejs",
+    "Express",
+    "Materialize",
+    "HTML",
+    "JS",
+    "CSS"
+  ],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "chai": "^5.2.0",
+    "express": "^4.21.2",
+    "mocha": "^11.1.0",
+    "mongoose": "^8.13.0",
+    "request": "^2.88.2"
+  }
+}
