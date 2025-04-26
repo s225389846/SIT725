@@ -26,7 +26,7 @@ mongoose
   });
 
 mongoose.connection.on("connected", () => {
-  console.log("Connected to MongoDB!");
+  console.log("Connected to MongoDB!!");
 });
 
 const port = process.env.PORT || 3000;
